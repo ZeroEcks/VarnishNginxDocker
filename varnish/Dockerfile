@@ -1,2 +1,2 @@
-FROM newsdev/varnish
-ENV VARNISH_MEMORY 1G
+FROM dockerimages/docker-varnish
+ADD default.vcl /etc/varnish
