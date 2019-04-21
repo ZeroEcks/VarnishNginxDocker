@@ -1,0 +1,10 @@
+version: '2'
+services:
+  mtg-varnish:
+    build:
+      context: ./varnish
+    depends_on:
+      - mtg-nginx
+  mtg-nginx:
+    build:
+      context: ./nginx

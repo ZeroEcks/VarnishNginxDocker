@@ -1,0 +1,26 @@
+# Sample override - adds Traefik labels and specifies networks
+version: '2'
+services:
+  mtg-varnish: 
+    ports:
+      - "8080:80"
+    labels:
+      - "traefik.frontend.rule=Host:mtg.docker.localhost"
+      - "traefik.enable=true"
+      - "traefik.docker.network=dev-gateway"
+    networks:
+      - gateway
+      - backend
+  mtg-nginx:
+    labels:
+      - "traefik.enable=false"
+    networks:
+      - backend
+
+networks:
+  gateway:
+    external:
+      name: dev-gateway
+  backend:
+    external:
+      name: dev-backend
