@@ -1,2 +1,2 @@
-FROM dockerimages/docker-varnish
+FROM jonbaldie/varnish
 ADD default.vcl /etc/varnish
